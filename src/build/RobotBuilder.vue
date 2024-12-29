@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import parts from '../data/parts';
 import { toCurrency } from '../shared/formatters';
 
@@ -78,6 +78,8 @@ const selectedTorsoIndex = ref(0);
 const selectedRightArmIndex = ref(0);
 const selectedBaseIndex = ref(0);
 const cart = ref([]);
+
+onMounted(() => console.log('onMounted executed'));
 
 const selectedRobot = computed(() => ({
   head: availableParts.heads[selectedHeadIndex.value],
