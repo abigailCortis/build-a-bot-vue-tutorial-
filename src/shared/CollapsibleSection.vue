@@ -1,11 +1,15 @@
 <template>
   <div>
     <div class="header">
-      <span v-if="open" @click="open = !open" @keydown="open = !open">&#x25B2; Collapse</span>
-      <span v-if="!open" @click="open = !open" @keydown="open = !open">&#x25BC; Expand</span>
+      <span v-if="open" @click="open = !open" @keydown="open = !open">
+        <slot name="collapse">&#x25B2; Collapse</slot>
+      </span>
+      <span v-if="!open" @click="open = !open" @keydown="open = !open">
+        <slot name="expand">&#x25BC; Expand</slot>
+      </span>
     </div>
     <slot v-if="open">
-      
+
     </slot>
   </div>
 </template>
