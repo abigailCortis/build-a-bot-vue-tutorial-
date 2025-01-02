@@ -8,7 +8,9 @@
 </template>
 
 <script setup>
-import { computed, ref, onUpdated } from 'vue';
+import {
+  computed, ref, onUpdated,
+} from 'vue';
 
 const props = defineProps({
   parts: { type: Array, required: true },
