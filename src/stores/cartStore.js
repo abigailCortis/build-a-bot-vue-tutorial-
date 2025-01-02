@@ -1,3 +1,9 @@
-import { defineStore} from "pinia";
+import { defineStore } from 'pinia';
+import { ref } from 'vue';
 
-export const useCartStore = defineStore('cart');
+// eslint-disable-next-line
+export const useCartStore = defineStore('cart', () => {
+  const cart = ref([]);
+
+  return { cart };
+});
