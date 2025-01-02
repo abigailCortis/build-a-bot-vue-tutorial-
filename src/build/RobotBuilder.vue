@@ -177,7 +177,7 @@ const selectPreviousBase = () => {
 // #endregion
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .part {
   position: relative;
   width: 200px;
@@ -189,8 +189,10 @@ const selectPreviousBase = () => {
   border: 3px solid v-bind(headBorderColor);
 }
 
-.part img {
-  width: 200px;
+.part {
+  img{
+    width: 200px;
+  }
 }
 
 .top-row {
