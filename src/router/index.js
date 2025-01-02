@@ -4,6 +4,7 @@ import RobotBuilder from '../build/RobotBuilder.vue';
 import ProductSearch from '../search/ProductSearch.vue';
 
 export default createRouter({
+  linkActiveClass: 'active-link',
   history: createWebHashHistory(),
   routes: [
     {
