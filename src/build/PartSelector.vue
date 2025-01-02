@@ -18,8 +18,11 @@ const props = defineProps({
     validator(value) { return ['left', 'right', 'top', 'center', 'bottom'].includes(value); },
   },
 });
+const emit = defineEmits(['partSelected']);
 const selectedPartIndex = ref(0);
 const selectedPart = computed(() => props.parts[selectedPartIndex.value]);
+
+emit('partSelected', selectedPart);
 
 function getPreviousValidIndex(index, length) {
   const deprecatedIndex = index - 1;
@@ -36,6 +39,7 @@ const selectNextPart = () => {
     selectedPartIndex.value,
     props.parts.length,
   );
+  emit('partSelected', selectedPart);
   console.log(selectedPart.value);
 };
 
@@ -44,6 +48,7 @@ const selectPreviousPart = () => {
     selectedPartIndex.value,
     props.parts.length,
   );
+  emit('partSelected', selectedPart);
 };
 </script>
 
