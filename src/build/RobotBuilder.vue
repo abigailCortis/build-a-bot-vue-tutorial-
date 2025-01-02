@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" v-if="partsStore.parts">
     <div class="preview">
       <CollapsibleSection>
         <template v-slot:collapse>&#x25B2; Hide</template>
@@ -25,19 +25,19 @@
         {{ selectedRobot.head.title }}
         <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
       </div>
-      <PartSelector :parts="availableParts.heads" position="top"
+      <PartSelector :parts="partsStore.parts.heads" position="top"
         @partSelected="part => selectedRobot.head = part" />
     </div>
     <div class="middle-row">
-      <PartSelector :parts="availableParts.arms" position="left"
+      <PartSelector :parts="partsStore.parts.arms" position="left"
         @partSelected="part => selectedRobot.leftArm = part" />
-      <PartSelector :parts="availableParts.torsos" position="center"
+      <PartSelector :parts="partsStore.parts.torsos" position="center"
         @partSelected="part => selectedRobot.torso = part" />
-      <PartSelector :parts="availableParts.arms" position="right"
+      <PartSelector :parts="partsStore.parts.arms" position="right"
         @partSelected="part => selectedRobot.rightArm = part" />
     </div>
     <div class="bottom-row">
-      <PartSelector :parts="availableParts.bases" position="bottom"
+      <PartSelector :parts="partsStore.parts.bases" position="bottom"
         @partSelected="part => selectedRobot.base = part" />
     </div>
   </div>
@@ -45,14 +45,15 @@
 
 <script setup scoped>
 import { useCartStore } from '@/stores/cartStore';
+import { usePartsStore } from '@/stores/partsStore';
 import { computed, onMounted, ref } from 'vue';
-import parts from '../data/parts';
 import CollapsibleSection from '../shared/CollapsibleSection.vue';
 import PartSelector from './PartSelector.vue';
 
 const cartStore = useCartStore();
+const partsStore = usePartsStore();
 
-const availableParts = parts;
+partsStore.getParts();
 
 onMounted(() => console.log('onMounted executed'));
 
