@@ -56,7 +56,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup scoped>
 import { computed, ref, onMounted } from 'vue';
 import parts from '../data/parts';
 import { toCurrency } from '../shared/formatters';
