@@ -27,6 +27,7 @@ export default createRouter({
       path: '/parts/:partType/:id',
       name: 'Parts',
       component: PartInfo,
+      props: true,
     },
   ],
 });

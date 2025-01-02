@@ -9,17 +9,10 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
 
 import parts from '../data/parts';
 
-const part = computed(() => {
-  const route = useRoute();
+const props = defineProps(['partType', 'id']);
 
-  // eslint-disable-next-line
-  const partType = route.params.partType;
-  const partId = route.params.id;
-
-  return parts[partType].find((p) => p.id === +partId);
-});
+const part = computed(() => parts[props.partType].find((p) => p.id === +props.id));
 </script>
