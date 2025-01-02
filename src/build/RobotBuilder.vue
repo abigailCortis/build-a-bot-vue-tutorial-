@@ -2,7 +2,7 @@
   <div class="content">
     <button class="add-to-cart" @click="addToCart()">Add To Cart</button>
     <div class="top-row">
-      <div class="top part">
+      <div class="top part" :style="headBorderStyle">
         <div class="robot-name">
           {{ selectedRobot.head.title }}
           <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
@@ -88,6 +88,8 @@ const selectedRobot = computed(() => ({
   rightArm: availableParts.arms[selectedRightArmIndex.value],
   base: availableParts.bases[selectedBaseIndex.value],
 }));
+
+const headBorderStyle = computed(() => ({ border: selectedRobot.value.head.onSale ? '3px solid red' : '3px solid #aaa' }));
 
 const addToCart = () => {
   const robot = selectedRobot.value;
