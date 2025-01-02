@@ -3,8 +3,10 @@
     <nav>
       <ul>
         <li class="nav-item">
+          <router-link :to="{name: 'Home'}" class="nav-link">
           <img class="logo" src="./assets/build-a-bot-logo.png" alt="logo" />
           Build-a-Bot
+        </router-link>
         </li>
       </ul>
     </nav>
@@ -51,6 +53,11 @@ header {
 ul {
   padding: 3px;
   display: flex;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .nav-item {
